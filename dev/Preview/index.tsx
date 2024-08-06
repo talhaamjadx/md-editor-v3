@@ -9,6 +9,7 @@ import {
   onMounted
 } from 'vue';
 import {
+  MdPreview,
   MdEditor,
   MdCatalog,
   DropdownToolbar,
@@ -245,7 +246,12 @@ export default defineComponent({
             top: '170px'
           }}
         >
-          <MdCatalog editorId="md-prev" theme={props.theme} mdHeadingId={mdHeadingId} />
+          <MdCatalog
+            isPreview={true}
+            editorId="md-prev"
+            theme={props.theme}
+            mdHeadingId={mdHeadingId}
+          />
         </div>
         <button
           style={{
@@ -280,7 +286,7 @@ export default defineComponent({
           1
         </button>
         <div class="container">
-          <MdEditor
+          <MdPreview
             editorId="md-prev"
             completions={completions.list}
             ref={editorRef}
@@ -497,7 +503,7 @@ export default defineComponent({
                 <span>^_^</span>
               </>
             }
-          ></MdEditor>
+          ></MdPreview>
           <br />
           {/* <Editor
             editorId="md-prev-2"

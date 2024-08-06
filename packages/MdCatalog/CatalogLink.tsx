@@ -24,6 +24,10 @@ const props = {
   scrollElementOffsetTop: {
     type: Number as PropType<number>,
     default: 0
+  },
+  isPreview: {
+    type: Boolean,
+    default: false
   }
 };
 
@@ -64,10 +68,17 @@ const CatalogLink = defineComponent({
                 }
               }
 
-              scrollContainer?.scrollTo({
-                top: offsetTop - scrollElementOffsetTop,
-                behavior: 'smooth'
-              });
+              if (props.isPreview) {
+                window?.scrollTo({
+                  top: offsetTop - scrollElementOffsetTop,
+                  behavior: 'smooth'
+                });
+              } else {
+                scrollContainer?.scrollTo({
+                  top: offsetTop - scrollElementOffsetTop,
+                  behavior: 'smooth'
+                });
+              }
             }
           }}
         >

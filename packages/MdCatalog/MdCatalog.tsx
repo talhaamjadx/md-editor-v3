@@ -26,6 +26,10 @@ export interface TocItem {
 }
 
 const props = {
+  isPreview: {
+    type: Boolean,
+    default: false
+  },
   /**
    * 编辑器的Id，务必与需要绑定的编辑器Id相同
    */
@@ -261,6 +265,7 @@ const MdCatalog = defineComponent({
               tocItem={item}
               key={`link-${item.level}-${item.text}`}
               scrollElement={state.scrollElement}
+              isPreview={props.isPreview}
               onClick={(e: MouseEvent, t: TocItem) => {
                 if (props.onClick) {
                   props.onClick(e, t);
